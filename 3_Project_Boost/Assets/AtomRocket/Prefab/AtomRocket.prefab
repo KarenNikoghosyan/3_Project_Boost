@@ -592,7 +592,7 @@ Transform:
   m_GameObject: {fileID: 8854619882081110099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.424, z: 0}
-  m_LocalScale: {x: 0.58757, y: 0.58757, z: 0.58757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5249835682068019595}
   - {fileID: 2043240322228822235}
@@ -613,8 +613,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8854619882081110099}
   serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0.25
+  m_Mass: 1
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -729,6 +729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b4f136a1badb34ba5633a2e41cf6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rcsThrust: 150
+  mainThrust: 1500
 --- !u!1 &8972606480291121315
 GameObject:
   m_ObjectHideFlags: 0
