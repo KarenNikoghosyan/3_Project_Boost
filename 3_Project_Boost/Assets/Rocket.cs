@@ -35,6 +35,7 @@ public class Rocket : MonoBehaviour
                 print("Refueling");
                 break;
             default:
+                Destroy(gameObject);
                 print("Dead");
                 break;
         }
