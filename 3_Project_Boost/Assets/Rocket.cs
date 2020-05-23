@@ -29,10 +29,14 @@ public class Rocket : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Friendly":
+                mainThrust = 1500f;
                 print("OK");
                 break;
             case "Fuel":
                 print("Refueling");
+                break;
+            case "Boost":
+                mainThrust = 2500f;
                 break;
             default:
                 Destroy(gameObject);
