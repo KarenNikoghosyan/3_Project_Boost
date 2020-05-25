@@ -23,20 +23,17 @@ public class Rocket : MonoBehaviour
         Thrust();
         Rotate();
     }
-
+    
     void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
         {
-            case "Friendly":
-                mainThrust = 1500f;
-                print("OK");
-                break;
             case "Fuel":
                 print("Refueling");
                 break;
-            case "Boost":
-                mainThrust = 2500f;
+            case "Friendly":
+                mainThrust = 1500f;
+                print("OK");
                 break;
             default:
                 Destroy(gameObject);
@@ -44,6 +41,18 @@ public class Rocket : MonoBehaviour
                 break;
         }
     }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Boost":
+                Destroy(collision.gameObject);
+                mainThrust = 2500f;
+                break;
+        }
+    }
+
     private void Thrust()
     {
         float thrustThisFrame = mainThrust * Time.deltaTime;
