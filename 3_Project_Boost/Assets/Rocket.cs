@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 public class Rocket : MonoBehaviour
 {
 
@@ -28,16 +26,19 @@ public class Rocket : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "Fuel":
-                print("Refueling");
-                break;
+           // case "Fuel":
+           //     print("Refueling");
+           //    break;
             case "Friendly":
                 mainThrust = 1500f;
-                print("OK");
+                break;
+            case "Finish":
+                mainThrust = 1500f;
+                SceneManager.LoadScene(1);
                 break;
             default:
                 Destroy(gameObject);
-                print("Dead");
+                SceneManager.LoadScene(0);
                 break;
         }
     }
