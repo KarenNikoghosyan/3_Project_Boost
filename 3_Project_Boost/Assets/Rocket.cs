@@ -5,8 +5,13 @@ public class Rocket : MonoBehaviour
 
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 10f;
+
     Rigidbody rigidBody;
     AudioSource audioSource;
+
+    enum State { Alive, Dying , Transcending};
+    State state = State.Alive;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +23,16 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Thrust();
-        Rotate();
+        if (state == State.Alive)
+        {
+            Thrust();
+            Rotate();
+        }
     }
     
     void OnCollisionEnter(Collision collision)
     {
+        if (state != State.Alive) { return; }
         switch (collision.gameObject.tag)
         {
            // case "Fuel":
@@ -33,14 +42,28 @@ public class Rocket : MonoBehaviour
                 mainThrust = 1500f;
                 break;
             case "Finish":
-                mainThrust = 1500f;
-                SceneManager.LoadScene(1);
+                state = State.Transcending;
+                Invoke("LoadNextLevel" , 1f);
                 break;
             default:
-                Destroy(gameObject);
-                SceneManager.LoadScene(0);
+                state = State.Dying;
+                //Destroy(gameObject);
+                transform.position = new Vector3(0, -100, 0);
+                Invoke("LoadFirstLevel" , 1f);
                 break;
         }
+
+    }
+
+    private void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    void LoadNextLevel()
+    {
+        mainThrust = 1500f;
+        SceneManager.LoadScene(1);
     }
 
     void OnTriggerEnter(Collider collision)
