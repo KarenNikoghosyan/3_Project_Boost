@@ -6,8 +6,13 @@ public class Rocket : MonoBehaviour
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 10f;
     [SerializeField] AudioClip mainEnigne;
-    [SerializeField] AudioClip Death;
-    [SerializeField] AudioClip Success;
+    [SerializeField] AudioClip death;
+    [SerializeField] AudioClip success;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] ParticleSystem successParticles;
+
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -58,18 +63,24 @@ public class Rocket : MonoBehaviour
     {
         state = State.Transcending;
         audioSource.Stop();
-        audioSource.PlayOneShot(Success);
+        audioSource.PlayOneShot(success);
+        successParticles.Play();
         Invoke("LoadNextLevel", 1f);
     }
     private void StartDeathSequence()
     {
         state = State.Dying;
         audioSource.Stop();
-        audioSource.PlayOneShot(Death);
-        transform.position = new Vector3(0, -100, 0);
+        audioSource.PlayOneShot(death);
+        deathParticles.Play();
+        Invoke("movePlayerOnDeath" , 0.1f);
         Invoke("LoadFirstLevel", 1f);
     }
 
+    private void movePlayerOnDeath()
+    {
+        transform.position = new Vector3(0, -100, 0);
+    }
 
     private void LoadFirstLevel()
     {
@@ -93,6 +104,16 @@ public class Rocket : MonoBehaviour
         }
     }
 
+
+    private void ApplyThrust(float thrustThisFrame)
+    {
+        rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEnigne);
+        }
+        mainEngineParticles.Play();
+    }
     private void Thrust()
     {
         float thrustThisFrame = mainThrust * Time.deltaTime;
@@ -103,15 +124,7 @@ public class Rocket : MonoBehaviour
         else
         {
             audioSource.Stop();
-        }
-    }
-
-    private void ApplyThrust(float thrustThisFrame)
-    {
-        rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
-        if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(mainEnigne);
+            mainEngineParticles.Stop();
         }
     }
 
