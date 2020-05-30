@@ -1488,7 +1488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc9b26e31ad8a4448f0e2407a1eea54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: 0, y: 0, z: 0}
+  movementVector: {x: 8, y: 0, z: 0}
+  period: 2
   movementFactor: 0
 --- !u!4 &1664255505 stripped
 Transform:
