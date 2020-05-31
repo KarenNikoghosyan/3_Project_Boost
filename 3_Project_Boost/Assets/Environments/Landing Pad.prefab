@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4936039550001851998}
   - component: {fileID: 1061793693295728877}
   m_Layer: 0
-  m_Name: Landing Pad
+  m_Name: Obstacle
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
