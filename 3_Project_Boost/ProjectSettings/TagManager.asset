@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Friendly
   - Fuel
-  - Boost
+  - PowerUp
   layers:
   - Default
   - TransparentFX
