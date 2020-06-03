@@ -8,7 +8,6 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip mainEnigne;
     [SerializeField] AudioClip death;
     [SerializeField] AudioClip success;
-    [SerializeField] AudioClip collect;
     [SerializeField] float levelLoadDelay = 2f;
 
     [SerializeField] ParticleSystem mainEngineParticles;
@@ -101,12 +100,12 @@ public class Rocket : MonoBehaviour
     {
         if (collision.gameObject.tag == "PowerUp")
         {
-                if (collision.name.Contains("Boost")) {
-                    audioSource.PlayOneShot(collect); // todo fix sound effect.
-                    mainThrust = 3000f;
-                    rcsThrust = 200f;
-                }
-                Destroy(collision.gameObject);
+            if (collision.name.Contains("Boost")) {
+                AudioManager.instance.Play("Collect");
+                mainThrust = 3000f;
+                rcsThrust = 200f;
+            }
+            Destroy(collision.gameObject);
         }
     }
 

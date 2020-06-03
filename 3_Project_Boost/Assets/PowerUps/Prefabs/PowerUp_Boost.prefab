@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3362492}
   - component: {fileID: 2362492}
   - component: {fileID: 11462492}
+  - component: {fileID: 1425252684}
   m_Layer: 0
-  m_Name: Arrows Blue
-  m_TagString: Untagged
+  m_Name: PoweUp_Boost
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,20 @@ MonoBehaviour:
   _animateYOffset: 1
   yOffsetAmplitude: 0.025
   yOffsetCycleDuration: 1.25
+--- !u!64 &1425252684
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7ac2319ff4942e64d8b25c0a7b6295fb, type: 3}
 --- !u!1 &162492
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +126,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 462492}
-  - component: {fileID: 1372192351}
   m_Layer: 0
   m_Name: PowerUp_Boost
   m_TagString: PowerUp
@@ -134,17 +148,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1372192351
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162492}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7ac2319ff4942e64d8b25c0a7b6295fb, type: 3}
