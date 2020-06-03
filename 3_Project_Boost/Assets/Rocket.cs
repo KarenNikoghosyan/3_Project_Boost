@@ -23,6 +23,7 @@ public class Rocket : MonoBehaviour
     enum State { Alive, Dying , Transcending};
     State state = State.Alive;
 
+    bool collisionsDisabled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +40,15 @@ public class Rocket : MonoBehaviour
             Thrust();
             Rotate();
         }
+        if (Debug.isDebugBuild)
+        {
+            DebugKeys();
+        }
     }
     
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive) { return; }
+        if (state != State.Alive || collisionsDisabled) { return; }
         switch (collision.gameObject.tag)
         {
            // case "Fuel":
@@ -147,5 +152,17 @@ public class Rocket : MonoBehaviour
             transform.Rotate(Vector3.forward * rotationThisFrame);
         }
         rigidBody.freezeRotation = false; // resume physics control of rotation
+    }
+    private void DebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsDisabled = !collisionsDisabled;
+        }
+  
     }
 }
