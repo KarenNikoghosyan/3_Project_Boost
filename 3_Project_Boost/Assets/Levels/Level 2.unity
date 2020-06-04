@@ -2177,7 +2177,7 @@ PrefabInstance:
     - target: {fileID: 6514583838028950885, guid: 2bf00a34805f1b14cb736f0030cb313f,
         type: 3}
       propertyPath: m_Name
-      value: Obstacle (1)
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6514583838028950885, guid: 2bf00a34805f1b14cb736f0030cb313f,
         type: 3}
@@ -2918,17 +2918,17 @@ PrefabInstance:
     - target: {fileID: 1762945361436171869, guid: 7fd9ddd4cba065c40954a75516f4a56a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1762945361436171869, guid: 7fd9ddd4cba065c40954a75516f4a56a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 44.2
+      value: 42.2
       objectReference: {fileID: 0}
     - target: {fileID: 1762945361436171869, guid: 7fd9ddd4cba065c40954a75516f4a56a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -92.1
+      value: -87.6
       objectReference: {fileID: 0}
     - target: {fileID: 1762945361436171869, guid: 7fd9ddd4cba065c40954a75516f4a56a,
         type: 3}

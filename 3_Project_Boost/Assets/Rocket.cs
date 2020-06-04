@@ -92,13 +92,20 @@ public class Rocket : MonoBehaviour
 
     private void LoadFirstLevel()
     {
-        SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);
     }
 
     void LoadNextLevel()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
         mainThrust = 1500f;
-        SceneManager.LoadScene(1);
+        if (currentSceneIndex  == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            nextSceneIndex = 0;
+        }
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     void OnTriggerEnter(Collider collision)
