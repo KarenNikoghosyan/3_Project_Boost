@@ -8,7 +8,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip mainEnigne;
     [SerializeField] AudioClip death;
     [SerializeField] AudioClip success;
-    [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] float levelLoadDelay = 0.5f;
 
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem deathParticles;
@@ -82,7 +82,7 @@ public class Rocket : MonoBehaviour
         audioSource.PlayOneShot(death);
         deathParticles.Play();
         Invoke("movePlayerOnDeath" , 0.1f);
-        Invoke("LoadFirstLevel", levelLoadDelay);
+        Invoke("LoadCurrentLevel", levelLoadDelay);
     }
 
     private void movePlayerOnDeath()
@@ -90,9 +90,9 @@ public class Rocket : MonoBehaviour
         transform.position = new Vector3(0, -100, 0);
     }
 
-    private void LoadFirstLevel()
+    private void LoadCurrentLevel()
     {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void LoadNextLevel()
