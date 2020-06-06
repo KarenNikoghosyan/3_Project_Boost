@@ -1027,11 +1027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462492, guid: 18596f17ce9c6eb42b0b9d75946d12a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -53.8
+      value: -43.7
       objectReference: {fileID: 0}
     - target: {fileID: 462492, guid: 18596f17ce9c6eb42b0b9d75946d12a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.8
+      value: 22.1
       objectReference: {fileID: 0}
     - target: {fileID: 462492, guid: 18596f17ce9c6eb42b0b9d75946d12a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2198,6 +2198,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3572864002142189914, guid: 6ace0503f5f5e6e44831975f9aeed05d,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691573842828866322, guid: 6ace0503f5f5e6e44831975f9aeed05d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691573842828866322, guid: 6ace0503f5f5e6e44831975f9aeed05d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912322753850769094, guid: 6ace0503f5f5e6e44831975f9aeed05d,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912322753850769094, guid: 6ace0503f5f5e6e44831975f9aeed05d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38b74c09846ac734fbd07a4ac5365613, type: 2}
     - target: {fileID: 8854619882081110099, guid: 6ace0503f5f5e6e44831975f9aeed05d,
         type: 3}
       propertyPath: m_Name
@@ -2515,7 +2540,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2094691197}
   - component: {fileID: 2094691196}
-  - component: {fileID: 2094691195}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -2523,20 +2547,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2094691195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094691194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc9b26e31ad8a4448f0e2407a1eea54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementVector: {x: 40, y: 0, z: 0}
-  period: 4
 --- !u!108 &2094691196
 Light:
   m_ObjectHideFlags: 0
@@ -2546,11 +2556,11 @@ Light:
   m_GameObject: {fileID: 2094691194}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 200
+  m_Range: 25
   m_SpotAngle: 80
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2606,7 +2616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094691194}
   m_LocalRotation: {x: -0, y: -0, z: -0.0000000013969838, w: 1}
-  m_LocalPosition: {x: -1.2, y: 36.4, z: -44.7}
+  m_LocalPosition: {x: -4.5, y: 13.2, z: -3.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

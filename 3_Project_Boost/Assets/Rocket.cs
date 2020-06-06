@@ -37,8 +37,8 @@ public class Rocket : MonoBehaviour
     {
         if (state == State.Alive)
         {
-            Thrust();
-            Rotate();
+            RespondToThrustInput();
+            RespondToRotateInput();
         }
         if (Debug.isDebugBuild)
         {
@@ -122,21 +122,11 @@ public class Rocket : MonoBehaviour
     }
 
 
-    private void ApplyThrust(float thrustThisFrame)
+    private void RespondToThrustInput()
     {
-        rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
-        if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(mainEnigne);
-        }
-        mainEngineParticles.Play();
-    }
-    private void Thrust()
-    {
-        float thrustThisFrame = mainThrust * Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
-            ApplyThrust(thrustThisFrame);
+            ApplyThrust();
         }
         else
         {
@@ -144,8 +134,17 @@ public class Rocket : MonoBehaviour
             mainEngineParticles.Stop();
         }
     }
+    private void ApplyThrust()
+    {
+        rigidBody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioSource.isPlaying) // so it doesn't layer
+        {
+            audioSource.PlayOneShot(mainEnigne);
+            mainEngineParticles.Play();
+        }
+    }
 
-    private void Rotate()
+    private void RespondToRotateInput()
     {
         rigidBody.freezeRotation = true; // take manual control of rotation
 
